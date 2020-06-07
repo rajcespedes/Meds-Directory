@@ -13,8 +13,36 @@
 	    <div class="col-md-8">
 	      <div class="card-body">
 	        <h5 class="card-title"><%= medico.name %></h5>
-	        <p class="card-text"><%= medico.field %></p>
-	        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+	        <div class="row">
+	        	<div class="col"><p class="card-text">Especialidad: </p></div>
+	        	<div class="col"><p class="card-text mb-4"><%= medico.field %></p></div>
+
+	        	
+	        </div>
+	        <div class="row d-flex justify-content-center">
+	        	<h5>Horario</h5>
+	        </div>
+	        <div class="row">
+	        	<table class="table table-striped">
+				  <thead>
+				    <tr>
+				      <th scope="col">Día</th>
+				      <th scope="col pr-0">Horario</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				  	
+				  	<% for (var i = 0; i < medico.schedule_days.length; i++) { %>
+						<tr>
+					      <td> <%= medico.schedule_days[i] %> </td>
+					      <td class="pr-0"> <%= medico.schedule_time[i] %> </td>
+					    </tr>				  		
+				  	<% } %>
+				  </tbody>
+				</table>	        	
+	        </div>
+	        
+	        <p class="card-text"><%= medico.medcenter %></p>
 	      </div>
 	    </div>
 	  </div>
